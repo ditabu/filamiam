@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import { Button, Form, Grid, Header, Image, Segment } from 'semantic-ui-react';
 import userService from '../../utils/userService';
+import { useNavigate } from 'react-router-dom';
 
 
 
 export default function SignUpPage(props){
 
+  const navigate = useNavigate();
+
   const [error, setError] = useState('');
-  const [inputInfo, setInputInfo] = useState({
+  const [state, setState] = useState({
     username: '',
     email: '',
     password: '', 
@@ -20,8 +23,8 @@ export default function SignUpPage(props){
   const [selectedFile, setSelectedFile] = useState('');
 
   function handleChange(e){
-    setInputInfo({
-      ...inputInfo,
+    setState({
+      ...state,
       [e.target.name]: e.target.value
     })
   }
@@ -31,14 +34,18 @@ export default function SignUpPage(props){
     const formData = new FormData()
     formData.append('photo', selectedFile)
 
-    for (let fieldName in inputInfo){
-      console.log(fieldName, inputInfo[fieldName])
-      formData.append(fieldName, inputInfo[fieldName])
+    for (let key in state){
+      console.log(key, state[key])
+      formData.append(key, state[key])
     }
+    console.log(formData.forEach((item) => console.log(item)))
+    
     try {
-      console.log(formData.forEach((item) => console.log(item)))
 
       await userService.signup(formData);
+      props.handleSignUpOrLogin() // decodes our token in localstorage, and sets the users information in our App.js state
+      navigate('/') // navigates to the home page route
+
     } catch (err) {
       console.log(err.message)
       setError(err.message)
@@ -61,7 +68,7 @@ export default function SignUpPage(props){
             <Form.Input
               name="username"
               placeholder="username"
-              value={inputInfo.username}
+              value={state.username}
               onChange={handleChange}
               required
             />
@@ -69,7 +76,7 @@ export default function SignUpPage(props){
               type="email"
               name="email"
               placeholder="email"
-              value={inputInfo.email}
+              value={state.email}
               onChange={handleChange}
               required
             />
@@ -77,7 +84,7 @@ export default function SignUpPage(props){
               name="password"
               type="password"
               placeholder="password"
-              value={inputInfo.password}
+              value={state.password}
               onChange={handleChange}
               required
             />
@@ -85,7 +92,7 @@ export default function SignUpPage(props){
               name="passwordConf"
               type="password"
               placeholder="Confirm Password"
-              value={inputInfo.passwordConf}
+              value={state.passwordConf}
               onChange={handleChange}
               required
             />
@@ -98,7 +105,7 @@ export default function SignUpPage(props){
             <Form.Input
               name="location"
               placeholder="City, State"
-              value={inputInfo.location}
+              value={state.location}
               onChange={handleChange}
               required
             />
