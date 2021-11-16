@@ -1,6 +1,9 @@
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const SECRET = process.env.SECRET;
+const { v4: uuidv4 } = require('uuid');
+const S3 = require('aws-sdk/clients/s3');
+const s3 = new S3();
 
 module.exports = {
   signup,
@@ -8,12 +11,16 @@ module.exports = {
 };
 
 async function signup(req, res) {
+  console.log('hitting signup router')
+  console.log(req.body, req.file)
   const user = new User(req.body);
   try {
+    console.log(user, 'this user')
     await user.save();
     const token = createJWT(user);
     res.json({ token });
   } catch (err) {
+    console.log(err, 'this err')
     // Probably a duplicate email
     res.status(400).json(err);
   }
