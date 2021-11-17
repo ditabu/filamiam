@@ -4,6 +4,8 @@ import './App.css';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
+import Feed from "../Feed/Feed";
+import Layout from "../Layout/Layout";
 
 function App() {
   const [user, setUser] = useState(userService.getUser());
@@ -20,11 +22,21 @@ function App() {
     return (
       <Routes>
         <Route
-          path="/login"
-          element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}
-        />
-        <Route path="/signup" element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin}/>} />
-      
+          path="/"
+          element={<Layout user={user} handleLogout={handleLogout} />}
+        >
+          <Route index element={<Feed user={user} />}></Route>
+          <Route
+            path="/login"
+            element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}
+          />
+
+          <Route
+            path="/signup"
+            element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />}
+          />
+          <Route path="/:username" element={<ProfilePage user={user} />} />
+        </Route>
       </Routes>
     );
   }
@@ -36,7 +48,10 @@ function App() {
         element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}
       />
 
-      <Route path="/signup" element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin}/>} />
+      <Route
+        path="/signup"
+        element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />}
+      />
       <Route path="/*" element={<Navigate to="/login" />} />
     </Routes>
   );
