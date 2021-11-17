@@ -2,7 +2,7 @@ import React from "react";
 import { Grid } from "semantic-ui-react";
 import { Outlet } from "react-router-dom";
 
-export default function Layout({user}) {
+export default function Layout() {
     return (
       <Grid>
         <Grid.Row>
