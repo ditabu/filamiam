@@ -58,17 +58,23 @@ export default function LoginPage(props) {
           <Form autoComplete="off" onSubmit={handleSubmit}>
             <Segment stacked>
               <Form.Input
+                fluid 
+                icon="user"
+                iconPosition="left"
                 type="email"
                 name="email"
-                placeholder="email"
+                placeholder="Email"
                 value={state.email}
                 onChange={handleChange}
                 required
               />
               <Form.Input
+                fluid
+                icon="lock"
+                iconPosition="left"
                 name="password"
                 type="password"
-                placeholder="password"
+                placeholder="Password"
                 value={state.password}
                 onChange={handleChange}
                 required

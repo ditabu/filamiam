@@ -66,24 +66,33 @@ export default function SignUpPage(props){
         <Form autoComplete="off" onSubmit={handleSubmit}>
           <Segment stacked>
             <Form.Input
+              fluid 
+              icon="user"
+              iconPosition="left"
               name="username"
-              placeholder="username"
+              placeholder="Username"
               value={state.username}
               onChange={handleChange}
               required
             />
             <Form.Input
+              fluid
+              icon="mail"
+              iconPosition="left"
               type="email"
               name="email"
-              placeholder="email"
+              placeholder="Email"
               value={state.email}
               onChange={handleChange}
               required
             />
             <Form.Input
+              fluid
+              icon="lock"
+              iconPosition="left"
               name="password"
               type="password"
-              placeholder="password"
+              placeholder="Password"
               value={state.password}
               onChange={handleChange}
               required
@@ -97,12 +106,15 @@ export default function SignUpPage(props){
               required
             />
             <Form.TextArea
-              label="bio"
+              label="Bio"
               name="bio"
               placeholder="Tell us why you are proud to be Fil-Am..."
               onChange={handleChange}
             />
             <Form.Input
+              fluid
+              icon="location arrow"
+              iconPosition="left"
               name="location"
               placeholder="City, State"
               value={state.location}
