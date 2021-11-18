@@ -7,6 +7,7 @@ const s3 = new S3();
 
 const BUCKET_NAME = process.env.BUCKET_NAME 
 console.log(BUCKET_NAME, "bucket_name working")
+
 module.exports = {
   signup,
   login
