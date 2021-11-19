@@ -11,8 +11,26 @@ console.log(BUCKET_NAME, "bucket_name working")
 
 module.exports = {
   signup,
-  login
+  login,
+  profile
 };
+
+async function profile(req, res){
+  try {
+    // First find the user using the params from the request
+    // findOne finds first match, its useful to have unique usernames!
+    const user = await User.findOne({username: req.params.username})
+    // Then find all the posts that belong to that user
+    if(!user) return res.status(404).json({err: 'User not found'})
+
+    const posts = await Post.find({user: user._id}).populate("user").exec();
+    console.log(posts, '<============ this posts')
+    res.status(200).json({posts: posts, user: user})
+  } catch(err){
+    console.log(err)
+    res.status(400).json({err})
+  }
+}
 
 async function signup(req, res) {
   console.log('hitting signup router')
@@ -27,6 +45,7 @@ async function signup(req, res) {
     Body: req.file.buffer,
   };
   console.log(params, "is this working")
+  
   s3.upload(params, async function (err, data) {
     // data -> successful response from aws, the file location will be in data.Location
 

@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-export default function SignUpPage(props){
+export default function SignUpPage(props) {
 
   const navigate = useNavigate();
 

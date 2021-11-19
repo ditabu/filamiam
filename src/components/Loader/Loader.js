@@ -1,3 +1,4 @@
+import React from "react";
 import { Grid, Loader } from 'semantic-ui-react'
 
 export default function Loading() {
