@@ -48,7 +48,7 @@ export default function AddPostForm(props) {
                             placeholder="upload image"
                             onChange={handleFileInput}
                         />
-                        <Button
+                        <Button color='blue'
                             type="submit"
                             className="btn"
                         >

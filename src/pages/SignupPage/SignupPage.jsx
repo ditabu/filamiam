@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
-import { Button, Form, Grid, Header, Image, Segment } from 'semantic-ui-react';
+import { Button, Form, Grid, Header, Image, Segment, Message } from 'semantic-ui-react';
 import userService from '../../utils/userService';
 import { useNavigate } from 'react-router-dom';
 
@@ -61,8 +61,13 @@ export default function SignUpPage(props) {
     <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as="h2" color="blue" textAlign="center">
-          <Image src="https://i.imgur.com/DXZAqxL.png?1" /> <br/> <br/>Welcome! Mabuhay! <br/> Sign Up
+          <Image src="https://i.imgur.com/DXZAqxL.png?1" />
         </Header>
+        <Message
+              attached
+              header='Welcome! Mabuhay!'
+              content='Fil-Am, I Am is a community based app to get the latest on what is going on in the Fil-Am community. Feel free to share your Fil-Am experience with your kabayans.'
+            /> 
         <Form autoComplete="off" onSubmit={handleSubmit}>
           <Segment stacked>
             <Form.Input

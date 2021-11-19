@@ -52,9 +52,13 @@ export default function LoginPage(props) {
       >
         <Grid.Column style={{ maxWidth: 450 }}>
           <Header as="h2" color="blue" textAlign="center">
-            <Image src="https://i.imgur.com/DXZAqxL.png?1" /> <br/> <br/>Welcome back! <br/>Log-in to your
-            account
+            <Image src="https://i.imgur.com/DXZAqxL.png?1" />
           </Header>
+          <Message
+              attached
+              header='Welcome back! Mabuhay!'
+              content='Fil-Am, I Am is a community based app to get the latest on what is going on in the Fil-Am community. Feel free to share your Fil-Am experience with your kabayans.'
+            /> 
           <Form autoComplete="off" onSubmit={handleSubmit}>
             <Segment stacked>
               <Form.Input

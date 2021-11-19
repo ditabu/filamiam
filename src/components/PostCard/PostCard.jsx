@@ -2,15 +2,27 @@ import React from 'react';
 import { Card, Icon, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
-export default function PostCard({ post, isProfile, user }) {
+export default function PostCard({ post, isProfile, user, addLike, removeLike }) {
+    const likeIndex = post.likes.findIndex(
+        (eachLike) => eachLike.username === user.username
+      );
+    
+    const likeColor = likeIndex > -1 ? "red" : "grey";
 
+    // removeLike needs to accept the like id
+    const clickHandler =
+        likeIndex > -1
+            ? () => removeLike(post.likes[likeIndex]._id)
+            : () => addLike(post._id);
+
+    
     return (
-        <Card key={post._id} raised>
+        <Card color='red' key={post._id} raised>
             {isProfile ? (
                 ""
             ) : (
                 <Card.Content textAlign="left">
-                    <Card.Header>
+                    <Card.Header color='brown'>
                         <Link to={`/${post.user.username}`}>
                             <Image
                                 size="large"
@@ -26,9 +38,14 @@ export default function PostCard({ post, isProfile, user }) {
                     </Card.Header>
                 </Card.Content>
             )}
-            <Image src={`${post.photoUrl}`} wrapped ui={false} />
             <Card.Content>
                 <Card.Description>{post.description}</Card.Description>
+            </Card.Content>
+            <Image src={`${post.photoUrl}`} wrapped ui={false} />
+
+            <Card.Content extra textAlign={"left"}>
+                <Icon name={"heart"} size="large" color={likeColor} onClick={clickHandler} />
+                {post.likes.length} Likes
             </Card.Content>
         </Card>
     );

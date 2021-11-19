@@ -8,6 +8,8 @@ export default function PostFeed({
   isProfile,
   loading,
   user,
+  addLike,
+  removeLike
 }) {
 
   return (
@@ -27,6 +29,8 @@ export default function PostFeed({
             key={post._id}
             isProfile={isProfile}
             user={user}
+            addLike={addLike}
+            removeLike={removeLike}
           />
         );
       })}

@@ -11,7 +11,7 @@ export default function ErrorMessage(props) {
           <Link to="/signup">Sign Up</Link>
         </Message.Item>
         <Message.Item>
-          <Link to="/login">login</Link>
+          <Link to="/login">Login</Link>
         </Message.Item>
         <Message.Item>
           <Link to="/">Home</Link>

@@ -6,6 +6,7 @@ import PostsFeed from "../../components/PostsFeed/PostsFeed";
 import { useParams } from "react-router-dom";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import userService from "../../utils/userService";
+import * as likesApi from "../../utils/likesApi";
 
 export default function ProfilePage(props) {
   const [posts, setPosts] = useState([]);
@@ -18,7 +19,6 @@ export default function ProfilePage(props) {
 
   useEffect(() => {
     // async and await on this anoymous function ^
-
     getProfile();
   }, [username]);
 
@@ -33,6 +33,27 @@ export default function ProfilePage(props) {
     }
   }
 
+  async function addLike(postId) {
+    try {
+      const data = await likesApi.create(postId);
+      console.log(data, " <- this is data the response from likes create");
+      getProfile();
+    } catch (err) {
+      console.log(err);
+      setError(err.message);
+    }
+  }
+
+  async function removeLike(likesId) {
+    try {
+      const data = await likesApi.removeLike(likesId);
+      console.log(data, " <- this is data the response from likes delete");
+      getProfile(false);
+    } catch (err) {
+      console.log(err);
+      setError(err.message);
+    }
+  }
 
   // Always check the error before loading, because if there is an error
   // we know something went wrong with the fetch call, therefore the http request
@@ -59,6 +80,8 @@ export default function ProfilePage(props) {
             posts={posts}
             numPhotosCol={2}
             user={props.user}
+            addLike={addLike}
+            removeLike={removeLike}
           />
         </Grid.Column>
       </Grid.Row>
