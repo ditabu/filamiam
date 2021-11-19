@@ -46,13 +46,13 @@ function login(creds) {
 function getProfile(username) {
   return fetch(BASE_URL + username, {
     headers: {
-      'Authorization': 'Bearer ' + tokenService.getToken()
-      }
-  }).then(res => {
-    if(res.ok) return res.json()
-    if(res.status === 404) throw new Error('User not Found')
-    throw new Error('Bad Credentials') // <- this is what gets sent to the catch block when we call the function
-  })
+      Authorization: "Bearer " + tokenService.getToken(),
+    },
+  }).then((res) => {
+    if (res.ok) return res.json();
+    if (res.status === 404) throw new Error("User not Found");
+    throw new Error("Bad Credentials"); // <- this is what gets sent to the catch block when we call the function
+  });
 }
 
 export default {

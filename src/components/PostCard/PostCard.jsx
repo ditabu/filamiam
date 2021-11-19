@@ -22,7 +22,7 @@ export default function PostCard({ post, isProfile, user, addLike, removeLike })
                 ""
             ) : (
                 <Card.Content textAlign="left">
-                    <Card.Header color='brown'>
+                    <Card.Header>
                         <Link to={`/${post.user.username}`}>
                             <Image
                                 size="large"

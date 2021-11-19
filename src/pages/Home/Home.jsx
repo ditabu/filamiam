@@ -4,7 +4,7 @@ import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import AddPostForm from "../../components/AddPostForm/AddPostForm";
 import PostsFeed from "../../components/PostsFeed/PostsFeed";
 import * as postsApi from '../../utils/postApi';
-import { Grid, Container, Header, Button, Icon } from "semantic-ui-react";
+import { Grid, Container, Header } from "semantic-ui-react";
 import * as likesApi from '../../utils/likesApi';
 
 export default function Feed(props) {
@@ -144,7 +144,7 @@ export default function Feed(props) {
                         />
                             <Header
                             as='h6'
-                            content='Filipinos have been in America since 1587, but why do we not hear much of their stories, their triumphs, their culture, their food, their history as much as we should today? This is the place to represent, to share, and be proud to be Fil-Am, I am.' 
+                            content='Filipinos have been in America since 1587, but why do we not hear much of their stories, their triumphs, their culture, their food, their history as much as we should today? This is the place to represent, to share, story tell, and be proud to say outloud, "Fil-Am, I am!"' 
                             inverted
                             style={{
                                 fontSize: '1em',

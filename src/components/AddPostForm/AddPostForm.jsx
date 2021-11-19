@@ -34,7 +34,7 @@ export default function AddPostForm(props) {
                 <Segment>
                     Create Post
                     <br/>
-                    <Form autoComplete="off" onSubmit={handleSubmit}>
+                    <Form color='red' autoComplete="off" onSubmit={handleSubmit}>
                         <Form.Input
                             className="form-control"
                             name="description"
