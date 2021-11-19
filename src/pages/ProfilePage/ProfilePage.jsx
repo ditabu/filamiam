@@ -57,7 +57,7 @@ export default function ProfilePage(props) {
           <PostsFeed
             isProfile={true}
             posts={posts}
-            numPhotosCol={3}
+            numPhotosCol={2}
             user={props.user}
           />
         </Grid.Column>

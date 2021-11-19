@@ -63,7 +63,7 @@ export default function Feed(props){
               <PostsFeed
                 posts={posts}
                 isProfile={false}
-                numPhotosCol={3}
+                numPhotosCol={1}
                 loading={loading}
                 user={props.user}
               />
