@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Header from "../../components/Header/Header";
 import AddPostForm from "../../components/AddPostForm/AddPostForm";
 import PostsFeed from "../../components/PostsFeed/PostsFeed";
 import * as postsApi from '../../utils/postApi';

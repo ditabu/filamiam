@@ -11,11 +11,12 @@ module.exports = {
 };
 
 function create(req, res) {
-    console.log(req.body, req.file, req.user);
+    console.log(req.body, "<------- req.body", req.file, "<+++++ req.file", req.user, " <======req.user");
   
     //Upload the file to AWS
     const filePath = `${uuidv4()}/${req.file.originalname}`;
     const params = { Bucket: BUCKET_NAME, Key: filePath, Body: req.file.buffer };
+    console.log(filePath, "<-----------filePath", params, "<======params")
     s3.upload(params, async function (err, data) {
       console.log(err, " < - error from aws in the post create");
   
@@ -25,7 +26,7 @@ function create(req, res) {
           photoUrl: data.Location,
           user: req.user
         });
-  
+        console.log(post, "<----------success")
         res.status(201).json({ post: post });
       } catch (err) {
         res.status(400).json({ err });
