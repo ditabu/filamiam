@@ -29,9 +29,11 @@ export default function AddPostForm(props) {
     }
 
     return (
-        <Grid textAlign='center' style={{ height: '25vh' }} verticalAlign='middle'>
+        <Grid textAlign='left' style={{ height: '25vh' }} verticalAlign='middle'>
             <Grid.Column style={{ maxWidth: 450 }}>
                 <Segment>
+                    Create Post
+                    <br/>
                     <Form autoComplete="off" onSubmit={handleSubmit}>
                         <Form.Input
                             className="form-control"
@@ -41,18 +43,19 @@ export default function AddPostForm(props) {
                             onChange={handleChange}
                             required
                         />
-                        <Form.Input
+                        <Form.Input 
                             className="form-control"
-                            type="file"
+                            type="file" 
                             name="photo"
                             placeholder="upload image"
                             onChange={handleFileInput}
                         />
-                        <Button color='blue'
+                        <Button color='blue' 
                             type="submit"
                             className="btn"
+                            size='mini'
                         >
-                            ADD POST
+                            Add Post
                         </Button>
                     </Form>
                 </Segment>

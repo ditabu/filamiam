@@ -11,7 +11,7 @@ export default function PageHeader({ user, handleLogout }) {
                 <Link to="/"><Icon color='brown' name="home"></Icon></Link>
                 <Link to='' onClick={handleLogout}>Logout</Link>
             </Header>
-            <Header as='h2' floated='left'>
+            <Header as='h1' floated='left'>
             <Link to="/"><Image src="https://i.imgur.com/DXZAqxL.png?1" avatar></Image></Link>
             </Header>
         </Segment>
