@@ -3,8 +3,8 @@ import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import AddPostForm from "../../components/AddPostForm/AddPostForm";
 import PostsFeed from "../../components/PostsFeed/PostsFeed";
-import * as postsApi from '../../utils/postApi';
-import { Grid, Container, Header } from "semantic-ui-react";
+import * as postApi from '../../utils/postApi';
+import { Grid, Container, Header, Divider } from "semantic-ui-react";
 import * as likesApi from '../../utils/likesApi';
 
 export default function Feed(props) {
@@ -16,7 +16,7 @@ export default function Feed(props) {
         console.log(post)
         try {
             setLoading(true);
-            const data = await postsApi.create(post);
+            const data = await postApi.create(post);
             console.log(data, " this is response from the server, in handleAddPost");
             setPosts([data.post, ...posts]);
             setLoading(false);
@@ -54,7 +54,7 @@ export default function Feed(props) {
         try {
 
             showLoading ? setLoading(true) : setLoading(false)
-            const data = await postsApi.getAll();
+            const data = await postApi.getAll();
             setPosts([...data.posts]);
             setLoading(false);
         } catch (err) {
@@ -74,6 +74,17 @@ export default function Feed(props) {
     if (loading) {
         return <Loader />;
     }
+
+    async function removePost(postId) {
+        try {
+          const data = await postApi.removePost(postId);
+          console.log(data, " <- this is data the response from post delete");
+          getPosts(false);
+        } catch (err) {
+          console.log(err);
+          setError(err.message);
+        }
+      }
 
     return (
 
@@ -155,9 +166,25 @@ export default function Feed(props) {
                         />
                     </Container>
                     <br/>
+                    <Divider
+                        as='h4'
+                        className='header'
+                        horizontal
+                        style={{ margin: '3em 0em', textTransform: 'uppercase' }}
+                    >
+                        <a href='#'>Create a Post</a>
+                    </Divider>
                     <AddPostForm color='yellow' inverted handleAddPostForm={handleAddPostForm} />
                 </Grid.Column>
             </Grid.Row>
+                <Divider
+                    as='h4'
+                    className='header'
+                    horizontal
+                    style={{ margin: '3em 0em', textTransform: 'uppercase' }}
+                >
+                    <a href='#'>Read, Learn, Explore, Experience</a>
+                </Divider>
             <Grid.Row>
                 <Grid.Column style={{ maxWidth: 450 }}>
                     <PostsFeed
@@ -168,6 +195,7 @@ export default function Feed(props) {
                         user={props.user}
                         addLike={addLike}
                         removeLike={removeLike}
+                        removePost={removePost}
                     />
                 </Grid.Column>
             </Grid.Row>

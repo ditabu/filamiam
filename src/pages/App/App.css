@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+div.ui.clearing.segment {
+  background-color: white;
+}
+
+div.ui.segment {
+  background-color: #2185D0;
+}

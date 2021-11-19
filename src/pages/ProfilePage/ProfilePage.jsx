@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import userService from "../../utils/userService";
 import * as likesApi from "../../utils/likesApi";
+import * as postApi from '../../utils/postApi';
 
 export default function ProfilePage(props) {
   const [posts, setPosts] = useState([]);
@@ -55,6 +56,17 @@ export default function ProfilePage(props) {
     }
   }
 
+  async function removePost(postId) {
+    try {
+      const data = await postApi.removePost(postId);
+      console.log(data, " <- this is data the response from post delete");
+      getProfile(false);
+    } catch (err) {
+      console.log(err);
+      setError(err.message);
+    }
+  }
+
   // Always check the error before loading, because if there is an error
   // we know something went wrong with the fetch call, therefore the http request
   // is complete
@@ -70,7 +82,7 @@ export default function ProfilePage(props) {
     <Grid centered>
       <Grid.Row>
         <Grid.Column>
-            <ProfileBio user={user} />
+            <ProfileBio floated="left" user={user} />
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
@@ -82,6 +94,7 @@ export default function ProfilePage(props) {
             user={props.user}
             addLike={addLike}
             removeLike={removeLike}
+            removePost={removePost}
           />
         </Grid.Column>
       </Grid.Row>

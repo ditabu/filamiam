@@ -32,8 +32,6 @@ export default function AddPostForm(props) {
         <Grid textAlign='left' style={{ height: '25vh' }} verticalAlign='middle'>
             <Grid.Column style={{ maxWidth: 450 }}>
                 <Segment>
-                    Create Post
-                    <br/>
                     <Form color='red' autoComplete="off" onSubmit={handleSubmit}>
                         <Form.Input
                             className="form-control"

@@ -8,7 +8,20 @@ const BUCKET_NAME = process.env.BUCKET_NAME;
 module.exports = {
     create,
     index,
+    deletePost
 };
+
+async function deletePost(req, res) {
+  try {     
+      const post = await Post.findOne({'post._id': req.params.id, 'post.username': req.user.username});
+      post.remove(req.params.id) // mutating a document
+      // req.params.id is the like id 
+      await post.save() // after you mutate a document you must save
+      res.json({data: 'post removed'})
+  } catch(err){ 
+      res.status(400).json({err})
+  }
+}
 
 function create(req, res) {
     console.log(req.body, "<------- req.body", req.file, "<+++++ req.file", req.user, " <======req.user");
