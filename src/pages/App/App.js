@@ -4,7 +4,7 @@ import './App.css';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
-import Feed from '../Feed/Feed';
+import Home from '../Home/Home';
 import Layout from "../Layout/Layout";
 
 
@@ -26,7 +26,7 @@ function App() {
           path="/"
           element={<Layout user={user} handleLogout={handleLogout} />}
         >
-          <Route index element={<Feed user={user} />}></Route>
+          <Route index element={<Home user={user} />}></Route>
           <Route
             path="/login"
             element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}

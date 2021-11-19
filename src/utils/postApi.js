@@ -9,5 +9,22 @@ export function create(post) {
         headers: {
             'Authorization': 'Bearer ' + tokenService.getToken()
         }
-    }).then(res => res.json());
+    }).then(res => {
+        if (res.ok) return res.json();
+        throw new Error('Bad Credentials');
+  })
 }
+
+export function getAll() {
+	return fetch(BASE_URL, {
+	  method: 'GET',
+	  headers: {
+		'Authorization': 'Bearer ' + tokenService.getToken()
+	  }
+	})
+	.then(res => {
+		// Valid login if we have a status of 2xx (res.ok)
+		if (res.ok) return res.json();
+		throw new Error('bad Credentials');
+	  })
+  }
