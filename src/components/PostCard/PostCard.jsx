@@ -43,11 +43,11 @@ export default function PostCard({ post, isProfile, user, addLike, removeLike, r
                             {post.user.username}
                         </Link>
                     </Card.Header>
+                    {post.user._id === user._id ?
+                    <Icon float={"right"} name={"delete"} size="small" onClick={deleteHandler}/>
+                    : "" }
                 </Card.Content>
             )}
-            <Card.Content extra textAlign={"right"}>
-                <Icon name={"delete"} size="small" onClick={deleteHandler}/>
-            </Card.Content>
             <Card.Content>
                 <Card.Description>{post.description}</Card.Description>
             </Card.Content>

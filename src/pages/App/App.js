@@ -5,7 +5,7 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import ProfilePage from "../ProfilePage/ProfilePage";
 import userService from '../../utils/userService';
-import Home from '../Home/Home';
+import Feed from '../Feed/Feed';
 import Layout from "../Layout/Layout";
 
 
@@ -27,7 +27,7 @@ function App() {
           path="/"
           element={<Layout user={user} handleLogout={handleLogout} />}
         >
-          <Route index element={<Home user={user} />}></Route>
+          <Route index element={<Feed user={user} />}></Route>
           <Route
             path="/login"
             element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}
