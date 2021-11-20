@@ -9,7 +9,8 @@ export default function PostFeed({
   loading,
   user,
   addLike,
-  removeLike
+  removeLike, 
+  removePost
 }) {
 
   return (
@@ -31,6 +32,7 @@ export default function PostFeed({
             user={user}
             addLike={addLike}
             removeLike={removeLike}
+            removePost={removePost}
           />
         );
       })}

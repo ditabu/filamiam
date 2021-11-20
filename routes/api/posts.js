@@ -7,7 +7,7 @@ const upload = multer();
 // /*---------- Public Routes ----------*/
 router.post('/', isAuthorized, upload.single('photo'), postsCtrl.create);
 router.get('/', postsCtrl.index)
-router.delete('/posts/:id', postsCtrl.deletePost)
+router.delete('/:id', postsCtrl.deletePost)
 
 /*---------- Protected Routes ----------*/
 function isAuthorized(req, res, next){

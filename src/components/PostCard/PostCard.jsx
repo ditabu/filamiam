@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function PostCard({ post, isProfile, user, addLike, removeLike, removePost }) {
     const likeIndex = post.likes.findIndex(
         (eachLike) => eachLike.username === user.username
-      );
+    );
     
     const likeColor = likeIndex > -1 ? "red" : "grey";
 
@@ -14,11 +14,14 @@ export default function PostCard({ post, isProfile, user, addLike, removeLike, r
         likeIndex > -1
             ? () => removeLike(post.likes[likeIndex]._id)
             : () => addLike(post._id);
+    
+    // const deleteHandler = () => removePost(post._id)
 
-    // const postIndex = post.findIndex(
-    //     (eachPost) => eachPost.username === user.username
-    //     );
+    function deleteHandler() {
+        console.log("deleteHandler", post._id)
+        removePost(post._id)
         
+    }
     
     return (
         <Card color='red' key={post._id} raised>
@@ -43,7 +46,7 @@ export default function PostCard({ post, isProfile, user, addLike, removeLike, r
                 </Card.Content>
             )}
             <Card.Content extra textAlign={"right"}>
-                <Icon name={"delete"} size="small" />
+                <Icon name={"delete"} size="small" onClick={deleteHandler}/>
             </Card.Content>
             <Card.Content>
                 <Card.Description>{post.description}</Card.Description>

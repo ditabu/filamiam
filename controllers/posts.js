@@ -13,12 +13,10 @@ module.exports = {
 
 async function deletePost(req, res) {
   try {     
-      const post = await Post.findOne({'post._id': req.params.id, 'post.username': req.user.username});
-      post.remove(req.params.id) // mutating a document
-      // req.params.id is the like id 
-      await post.save() // after you mutate a document you must save
+      const post = await Post.findByIdAndDelete(req.params.id);
       res.json({data: 'post removed'})
   } catch(err){ 
+      console.log(err, "<----catch error for deletepost")
       res.status(400).json({err})
   }
 }
