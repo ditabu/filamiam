@@ -7,6 +7,8 @@ import ProfilePage from "../ProfilePage/ProfilePage";
 import userService from '../../utils/userService';
 import Feed from '../Feed/Feed';
 import Layout from "../Layout/Layout";
+import Home from '../Home/Home';
+import CreatePage from '../CreatePage/CreatePage';
 
 
 function App() {
@@ -27,13 +29,15 @@ function App() {
           path="/"
           element={<Layout user={user} handleLogout={handleLogout} />}
         >
-          <Route index element={<Feed user={user} />}></Route>
+          <Route index element={<Home user={user} />}></Route>
           <Route
             path="/login"
             element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}
           />
           <Route path="/signup" element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin}/>} /> 
           <Route path="/:username" element={<ProfilePage user={user} />} />
+          <Route path="/form" element={<CreatePage />} />
+          <Route path="/feed" element={<Feed user={user} />} />
         </Route>
       </Routes>
     );

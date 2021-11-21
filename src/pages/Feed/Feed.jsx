@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-import AddPostForm from "../../components/AddPostForm/AddPostForm";
 import PostsFeed from "../../components/PostsFeed/PostsFeed";
 import * as postApi from '../../utils/postApi';
-import { Grid, Container, Header, Divider } from "semantic-ui-react";
+import { Grid, Divider } from "semantic-ui-react";
 import * as likesApi from '../../utils/likesApi';
+import AddPostForm from "../../components/AddPostForm/AddPostForm";
 
 export default function Feed(props) {
     const [posts, setPosts] = useState([])
@@ -91,90 +91,6 @@ export default function Feed(props) {
         <Grid centered>
             <Grid.Row>
                 <Grid.Column style={{ maxWidth: 450 }}>
-                    <Container text>
-                        <Header
-                            as='h1'
-                            content='Fil-Am, I Am'
-                            inverted
-                            style={{
-                                fontSize: '4em',
-                                fontWeight: 'bold',
-                                marginBottom: 0,
-                                marginTop: '1em',
-                                
-                            }}
-                        />
-                        <Header
-                            as='h2'
-                            content='a small business owner' 
-                            inverted
-                            style={{
-                                fontSize: '1.5em',
-                                fontWeight: 'normal',
-                                marginTop: '.25em',
-                            }}
-                        />
-                            <Header
-                            as='h2'
-                            content='a supporter' 
-                            inverted
-                            style={{
-                                fontSize: '1.5em',
-                                fontWeight: 'normal',
-                                marginTop: '.25em',
-                            }}
-                        />
-                            <Header
-                            as='h2'
-                            content='an artist' 
-                            inverted
-                            style={{
-                                fontSize: '1.5em',
-                                fontWeight: 'normal',
-                                marginTop: '.25em',
-                            }}
-                        />
-                            <Header
-                            as='h2'
-                            content='a foodie' 
-                            inverted
-                            style={{
-                                fontSize: '1.5em',
-                                fontWeight: 'normal',
-                                marginTop: '.25em',
-                            }}
-                        />
-                            <Header
-                            as='h1'
-                            content='I Am, Fil-Am'
-                            inverted
-                            style={{
-                                fontSize: '4em',
-                                fontWeight: 'bold',
-                                marginBottom: 0,
-                            }}
-                        />
-                            <Header
-                            as='h6'
-                            content='Filipinos have been in America since 1587, but why do we not hear much of their stories, their triumphs, their culture, their food, their history as much as we should today? This is the place to represent, to share, story tell, and be proud to say outloud, "Fil-Am, I am!"' 
-                            inverted
-                            style={{
-                                fontSize: '1em',
-                                fontWeight: 'normal',
-                                marginTop: '.75em',
-                                maxWidth: 450
-                            }}
-                        />
-                    </Container>
-                    <br/>
-                    <Divider
-                        as='h4'
-                        className='header'
-                        horizontal
-                        style={{ margin: '3em 0em', textTransform: 'uppercase' }}
-                    >
-                        <a href='#'>Create a Post</a>
-                    </Divider>
                     <AddPostForm color='yellow' inverted handleAddPostForm={handleAddPostForm} />
                 </Grid.Column>
             </Grid.Row>
@@ -187,11 +103,11 @@ export default function Feed(props) {
                     <a href='#'>Read, Learn, Explore, Experience</a>
                 </Divider>
             <Grid.Row>
-                <Grid.Column style={{ maxWidth: 450 }}>
+                <Grid.Column style={{ maxWidth: 1000 }}>
                     <PostsFeed
                         posts={posts}
                         isProfile={false}
-                        numPhotosCol={1}
+                        numPhotosCol={4}
                         loading={loading}
                         user={props.user}
                         addLike={addLike}
