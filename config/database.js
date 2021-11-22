@@ -1,9 +1,16 @@
 const mongoose = require("mongoose");
 
-mongoose.connect(process.env.DATABASE_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+// mongoose.connect(
+//   "mongodb://localhost:27017/filam", // < replace with your database name!
+// )
+
+mongoose.connect("mongodb://localhost:27017/filam") 
+// DATABASE_URL, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// }, () => {
+//   console.log("connected to db")
+// });
 
 const db = mongoose.connection;
 
