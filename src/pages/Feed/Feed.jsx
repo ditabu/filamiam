@@ -100,7 +100,7 @@ export default function Feed(props) {
                                 fontWeight: 'bold',
                                 marginBottom: '1em',
                                 marginTop: '2em',
-                        
+
 
                             }}
                         />
