@@ -27,33 +27,33 @@ export default function CreateForm(props) {
 
 
     return (
-        <Container>
-            <Grid centered>
-                <Grid.Column>
-                    <Header
-                        as='h1'
-                        content='Create a post'
-                        inverted
-                        style={{
-                            fontSize: '4em',
-                            fontWeight: 'bold',
-                            marginBottom: '1em',
-                            marginTop: '0',
-                        }}
-                    />
-                    <AddPostForm handleAddPostForm={handleAddPostForm} />
-                    <Grid.Row>
-                        <Grid.Column>
-                            <Link to="/feed">
-                                <Button primary size='huge'>
-                                Go to feed
-                                <Icon name='right arrow' />
-                                </Button>
-                            </Link>
-                        </Grid.Column>
-                    </Grid.Row>
-                </Grid.Column>
+            <Grid columns={2} centered>
+                <Grid.Row>
+                    <Grid.Column width={10}>
+                        <Header
+                            as='h1'
+                            content='Create a post'
+                            style={{
+                                fontSize: '4em',
+                                fontWeight: 'bold',
+                                marginBottom: '1em',
+                                marginTop: '0',
+                            }}
+                        />
+                    </Grid.Column>
+                    <Grid.Column style={{background: "white", maxWidth: 450}}>
+                        <AddPostForm handleAddPostForm={handleAddPostForm} />
+                    </Grid.Column>
+                </Grid.Row>
             </Grid>
-        </Container>
+                        // <Grid.Column>
+                        //     <Link to="/feed">
+                        //         <Button primary size='huge'>
+                        //         Go to feed
+                        //         <Icon name='right arrow' />
+                        //         </Button>
+                        //     </Link>
+                        // </Grid.Column>
+            
     );
 }
