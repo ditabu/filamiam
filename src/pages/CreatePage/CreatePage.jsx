@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import AddPostForm from "../../components/AddPostForm/AddPostForm";
-import { Grid, Button } from "semantic-ui-react";
+import { Grid, Button, Container, Header, Icon } from "semantic-ui-react";
 import * as postApi from '../../utils/postApi';
 import { Link } from 'react-router-dom';
 
@@ -26,18 +26,40 @@ export default function CreateForm(props) {
     }
 
     return (
-
-        <Grid centered>
+        <Container>
+        <Grid columns={2} centered>
             <Grid.Row>
                 <Grid.Column style={{ maxWidth: 450 }}>
-                    <AddPostForm color='yellow' inverted handleAddPostForm={handleAddPostForm} />
-                    <Link to="/feed">
-                            <Button primary size='huge'>
-                            Read, Learn, Explore, Experience
-                            </Button>
-                        </Link>
+                    <Header
+                        as='h1'
+                        content='Create a post'
+                        inverted
+                        style={{
+                            fontSize: '4em',
+                            fontWeight: 'bold',
+                            marginBottom: '1em',
+                            marginTop: '3em',
+
+                        }}
+                    />
+                </Grid.Column>
+                <Grid.Column style={{ maxWidth: 450 }}>
+                    <AddPostForm handleAddPostForm={handleAddPostForm} />
                 </Grid.Column>
             </Grid.Row>
+            <Grid.Row>
+            </Grid.Row>
+            <Grid.Row>
+            </Grid.Row>
+            <Grid.Row>
+                <Link to="/feed">
+                    <Button primary size='huge'>
+                        Read, Learn, Experience
+                        <Icon name='right arrow' />
+                    </Button>
+                </Link>
+            </Grid.Row>
         </Grid>
+    </Container>
     );
 }

@@ -3,7 +3,7 @@ import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import PostsFeed from "../../components/PostsFeed/PostsFeed";
 import * as postApi from '../../utils/postApi';
-import { Grid, Divider } from "semantic-ui-react";
+import { Grid, Container, Header } from "semantic-ui-react";
 import * as likesApi from '../../utils/likesApi';
 import AddPostForm from "../../components/AddPostForm/AddPostForm";
 
@@ -77,45 +77,48 @@ export default function Feed(props) {
 
     async function removePost(postId) {
         try {
-          const data = await postApi.removePost(postId);
-          console.log(data, " <- this is data the response from post delete");
-          getPosts(false);
+            const data = await postApi.removePost(postId);
+            console.log(data, " <- this is data the response from post delete");
+            getPosts(false);
         } catch (err) {
-          console.log(err);
-          setError(err.message);
+            console.log(err);
+            setError(err.message);
         }
-      }
+    }
 
     return (
+        <Container>
+            <Grid columns={2} centered>
+                <Grid.Row>
+                    <Grid.Column style={{ maxWidth: 450 }}>
+                        <Header
+                            as='h1'
+                            content='Feed'
+                            inverted
+                            style={{
+                                fontSize: '4em',
+                                fontWeight: 'bold',
+                                marginBottom: '1em',
+                                marginTop: '0',
+                        
 
-        <Grid centered>
-            <Grid.Row>
-                <Grid.Column style={{ maxWidth: 450 }}>
-                    <AddPostForm color='yellow' inverted handleAddPostForm={handleAddPostForm} />
-                </Grid.Column>
-            </Grid.Row>
-                <Divider
-                    as='h4'
-                    className='header'
-                    horizontal
-                    style={{ margin: '3em 0em', textTransform: 'uppercase' }}
-                >
-                    <a href='#'>Read, Learn, Explore, Experience</a>
-                </Divider>
-            <Grid.Row>
-                <Grid.Column style={{ maxWidth: 1000 }}>
-                    <PostsFeed
-                        posts={posts}
-                        isProfile={false}
-                        numPhotosCol={4}
-                        loading={loading}
-                        user={props.user}
-                        addLike={addLike}
-                        removeLike={removeLike}
-                        removePost={removePost}
-                    />
-                </Grid.Column>
-            </Grid.Row>
-        </Grid>
+                            }}
+                        />
+                    </Grid.Column>
+                    <Grid.Column style={{ maxWidth: 800 }} >
+                        <PostsFeed
+                            posts={posts}
+                            isProfile={false}
+                            numPhotosCol={2}
+                            loading={loading}
+                            user={props.user}
+                            addLike={addLike}
+                            removeLike={removeLike}
+                            removePost={removePost}
+                        />
+                    </Grid.Column>
+                </Grid.Row>
+            </Grid>
+        </Container>
     );
 }

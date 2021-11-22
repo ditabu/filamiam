@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import { Grid, Container, Header, Button, Icon } from "semantic-ui-react";
+import { Grid, Container, Header, Button, Icon, Segment } from "semantic-ui-react";
 
 export default function CreatButton() {
 
 
     return (
-        <Grid centered>
-            <Grid.Row>
-                <Grid.Column width={2} style={{ maxWidth: 450 }}>
-                    <Container text>
+        <Container>
+            <Grid columns={2} centered>
+                <Grid.Row>
+                    <Grid.Column style={{ maxWidth: 450 }}>
                         <Header
                             as='h1'
                             content='Fil-Am, I Am'
@@ -17,81 +17,44 @@ export default function CreatButton() {
                             style={{
                                 fontSize: '4em',
                                 fontWeight: 'bold',
-                                marginBottom: 0,
-                                marginTop: '1em',
+                                marginBottom: '1em',
+                                marginTop: '3em',
 
                             }}
                         />
-                        <Header
-                            as='h2'
-                            content='a small business owner'
-                            inverted
-                            style={{
-                                fontSize: '1.5em',
-                                fontWeight: 'normal',
-                                marginTop: '.25em',
-                            }}
-                        />
-                        <Header
-                            as='h2'
-                            content='a supporter'
-                            inverted
-                            style={{
-                                fontSize: '1.5em',
-                                fontWeight: 'normal',
-                                marginTop: '.25em',
-                            }}
-                        />
-                        <Header
-                            as='h2'
-                            content='an artist'
-                            inverted
-                            style={{
-                                fontSize: '1.5em',
-                                fontWeight: 'normal',
-                                marginTop: '.25em',
-                            }}
-                        />
-                        <Header
-                            as='h2'
-                            content='a foodie'
-                            inverted
-                            style={{
-                                fontSize: '1.5em',
-                                fontWeight: 'normal',
-                                marginTop: '.25em',
-                            }}
-                        />
+                        <h2>a small business owner</h2>
+                        <h2>a supporter</h2>
+                        <h2>an artist</h2>
+                        <h2>a foodie</h2>
+                    </Grid.Column>
+                    <Grid.Column style={{ maxWidth: 450 }}>
                         <Header
                             as='h1'
-                            content='I Am, Fil-Am'
-                            inverted
+                            content='Since 1587,'
                             style={{
                                 fontSize: '4em',
                                 fontWeight: 'bold',
-                                marginBottom: 0,
+                                marginBottom: '1em',
+                                marginTop: '3em',
                             }}
                         />
-                        <Header
-                            as='h6'
-                            content='Filipinos have been in America since 1587, but why do we not hear much of their stories, their triumphs, their culture, their food, their history as much as we should today? This is the place to represent, to share, story tell, and be proud to say outloud, "Fil-Am, I am!"'
-                            inverted
-                            style={{
-                                fontSize: '1em',
-                                fontWeight: 'normal',
-                                marginTop: '.75em',
-                                maxWidth: 450
-                            }}
-                        />
-                        <Link to="/form">
-                            <Button primary size='huge'><Icon name='right arrow' />
+                        <h2>Filipinos have been in America, but why do we not hear much of their stories, their triumphs, their culture, their food, their history as much as we should today? This is the place to represent, to share, story tell, and be proud to say outloud, "Fil-Am, I am!"</h2>
+                    </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                </Grid.Row>
+                <Grid.Row>
+                </Grid.Row>
+                <Grid.Row>
+                    <Link to="/form">
+                        <Button primary size='huge'>
                             Create a post
-                            </Button>
-                        </Link>
-                    </Container>
-                </Grid.Column>
-            </Grid.Row>
-        </Grid>
+                            <Icon name='right arrow' />
+                        </Button>
+                    </Link>
+                </Grid.Row>
+            </Grid>
+        </Container>
     )
 }
 

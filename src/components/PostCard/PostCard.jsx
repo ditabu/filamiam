@@ -52,7 +52,6 @@ export default function PostCard({ post, isProfile, user, addLike, removeLike, r
                 <Card.Description>{post.description}</Card.Description>
             </Card.Content>
             <Image src={`${post.photoUrl}`} wrapped ui={false} />
-
             <Card.Content extra textAlign={"left"}>
                 <Icon name={"heart"} size="large" color={likeColor} onClick={clickHandler} />
                 {post.likes.length} Likes
