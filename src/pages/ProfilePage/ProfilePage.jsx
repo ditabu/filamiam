@@ -8,6 +8,7 @@ import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import userService from "../../utils/userService";
 import * as likesApi from "../../utils/likesApi";
 import * as postApi from '../../utils/postApi';
+import "./ProfilePage.css";
 
 export default function ProfilePage(props) {
     const [posts, setPosts] = useState([]);
@@ -82,10 +83,10 @@ export default function ProfilePage(props) {
         <Container>
             <Grid columns={2} centered>
                 <Grid.Row>
-                    <Grid.Column style={{ maxWidth: 450 }}>
+                    <Grid.Column width={4}>
                         <ProfileBio float="left" user={user} />
                     </Grid.Column>
-                    <Grid.Column style={{ maxWidth: 450 }}>
+                    <Grid.Column width={12}>
                         <PostsFeed
                             isProfile={true}
                             posts={posts}

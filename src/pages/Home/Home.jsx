@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from 'react-router-dom';
-import { Grid, Container, Header, Button, Icon, Segment } from "semantic-ui-react";
+import { Grid, Container, Header, Button, Icon } from "semantic-ui-react";
+import "./Home.css";
 
 export default function CreatButton() {
 
@@ -18,7 +19,7 @@ export default function CreatButton() {
                                 fontSize: '4em',
                                 fontWeight: 'bold',
                                 marginBottom: '1em',
-                                marginTop: '3em',
+                                marginTop: '2em',
 
                             }}
                         />
@@ -35,7 +36,7 @@ export default function CreatButton() {
                                 fontSize: '4em',
                                 fontWeight: 'bold',
                                 marginBottom: '1em',
-                                marginTop: '3em',
+                                marginTop: '2em',
                             }}
                         />
                         <h2>Filipinos have been in America, but why do we not hear much of their stories, their triumphs, their culture, their food, their history as much as we should today? This is the place to represent, to share, story tell, and be proud to say outloud, "Fil-Am, I am!"</h2>

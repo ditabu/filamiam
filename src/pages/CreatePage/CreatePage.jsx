@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import AddPostForm from "../../components/AddPostForm/AddPostForm";
@@ -29,7 +29,7 @@ export default function CreateForm(props) {
         <Container>
         <Grid columns={2} centered>
             <Grid.Row>
-                <Grid.Column style={{ maxWidth: 450 }}>
+                <Grid.Column width={4}>
                     <Header
                         as='h1'
                         content='Create a post'
@@ -38,12 +38,12 @@ export default function CreateForm(props) {
                             fontSize: '4em',
                             fontWeight: 'bold',
                             marginBottom: '1em',
-                            marginTop: '3em',
+                            marginTop: '2em',
 
                         }}
                     />
                 </Grid.Column>
-                <Grid.Column style={{ maxWidth: 450 }}>
+                <Grid.Column width={8}>
                     <AddPostForm handleAddPostForm={handleAddPostForm} />
                 </Grid.Column>
             </Grid.Row>
@@ -54,7 +54,7 @@ export default function CreateForm(props) {
             <Grid.Row>
                 <Link to="/feed">
                     <Button primary size='huge'>
-                        Read, Learn, Experience
+                        Go to feed
                         <Icon name='right arrow' />
                     </Button>
                 </Link>

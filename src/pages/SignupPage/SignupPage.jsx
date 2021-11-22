@@ -60,13 +60,14 @@ export default function SignUpPage(props) {
   return (
     <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as="h1" color="blue" textAlign="center">
-          <Image src="https://i.imgur.com/oAvL8ro.png" />
+        <Header as="h1" color="black" textAlign="center">
+          <Image src="https://i.imgur.com/tHjLrvs.png" />
+          Fil-Am, I Am
         </Header>
         <Message
               attached
               header='Welcome! Mabuhay!'
-              content='Fil-Am, I Am is a community based app to get the latest on what is going on in the Fil-Am community. Feel free to share your Fil-Am experience with your kabayans.'
+              content='Fil-Am, I Am is a community based app to get the latest on what is going on in the Fil-Am community and to share your own Fil-Am experience.'
             /> 
         <Form autoComplete="off" onSubmit={handleSubmit}>
           <Segment stacked>

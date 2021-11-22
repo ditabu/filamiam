@@ -90,7 +90,7 @@ export default function Feed(props) {
         <Container>
             <Grid columns={2} centered>
                 <Grid.Row>
-                    <Grid.Column style={{ maxWidth: 450 }}>
+                    <Grid.Column width={4}>
                         <Header
                             as='h1'
                             content='Feed'
@@ -99,13 +99,13 @@ export default function Feed(props) {
                                 fontSize: '4em',
                                 fontWeight: 'bold',
                                 marginBottom: '1em',
-                                marginTop: '0',
+                                marginTop: '2em',
                         
 
                             }}
                         />
                     </Grid.Column>
-                    <Grid.Column style={{ maxWidth: 800 }} >
+                    <Grid.Column width={12} >
                         <PostsFeed
                             posts={posts}
                             isProfile={false}
