@@ -6,7 +6,7 @@ export default function PostCard({ post, isProfile, user, addLike, removeLike, r
     const likeIndex = post.likes.findIndex(
         (eachLike) => eachLike.username === user.username
     );
-    
+
     const likeColor = likeIndex > -1 ? "red" : "grey";
 
     // removeLike needs to accept the like id
@@ -14,15 +14,15 @@ export default function PostCard({ post, isProfile, user, addLike, removeLike, r
         likeIndex > -1
             ? () => removeLike(post.likes[likeIndex]._id)
             : () => addLike(post._id);
-    
+
     // const deleteHandler = () => removePost(post._id)
 
     function deleteHandler() {
         console.log("deleteHandler", post._id)
         removePost(post._id)
-        
+
     }
-    
+
     return (
         <Card color='red' key={post._id} raised>
             {isProfile ? (
@@ -30,6 +30,9 @@ export default function PostCard({ post, isProfile, user, addLike, removeLike, r
             ) : (
                 <Card.Content textAlign="left">
                     <Card.Header>
+                        {post.user._id === user._id ?
+                            <Icon style={{ float: "right", color: "grey" }} name={"delete"} size="small" onClick={deleteHandler} />
+                            : ""}
                         <Link to={`/${post.user.username}`}>
                             <Image
                                 size="large"
@@ -43,9 +46,6 @@ export default function PostCard({ post, isProfile, user, addLike, removeLike, r
                             {post.user.username}
                         </Link>
                     </Card.Header>
-                    {post.user._id === user._id ?
-                    <Icon float={"right"} name={"delete"} size="small" onClick={deleteHandler}/>
-                    : "" }
                 </Card.Content>
             )}
             <Card.Content>

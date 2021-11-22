@@ -6,7 +6,7 @@ export default function ProfileBio({ user }) {
         <Container>
             <Grid columns={2} className="Profile">
                 <Grid.Row>
-                    <Grid.Column>
+                    <Grid.Column width={12}>
                         <Header
                             as='h1'
                             content='Profile'
@@ -24,16 +24,22 @@ export default function ProfileBio({ user }) {
                                 ? user.photoUrl
                                 : "https://react.semantic-ui.com/images/wireframe/square-image.png"
                                 } `}
-                            avatar
-                            size="small"
+                            size="large"
+                            bordered
+                                
                         />
-                        <Segment vertical>
+                        <Segment centered>
                             <h3>{user.username}</h3>
                         </Segment>
                         <Segment>
-                            <span> <strong>About Me:</strong> {user.bio} </span>
+                            <span><strong>About Me:</strong></span>
                             <br />
-                            <span> <strong>Location:</strong> {user.location} </span>
+                            <span> {user.bio} </span>
+                            <br />
+                            <br />
+                            <span><strong>Location:</strong></span>
+                            <br />
+                            <span> {user.location} </span>
                         </Segment>
                     </Grid.Column>
                 </Grid.Row>
