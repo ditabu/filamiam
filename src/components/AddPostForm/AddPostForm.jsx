@@ -20,8 +20,7 @@ export default function AddPostForm(props) {
     }
 
     function handleSubmit(e) {
-        e.preventDefault()
-        
+        e.preventDefault()   
         const formData = new FormData();
         formData.append('photo', selectedFile);
         formData.append('description', state.description);
@@ -53,12 +52,11 @@ export default function AddPostForm(props) {
                             className="btn"
                             size='mini'
                         >
-                            Add Post
+                        Add Post
                         </Button>
                     </Form>
                 </Segment>
             </Grid.Column>
         </Grid>
-
     );
 }

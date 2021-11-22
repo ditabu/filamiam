@@ -8,19 +8,15 @@ export default function PostCard({ post, isProfile, user, addLike, removeLike, r
     );
 
     const likeColor = likeIndex > -1 ? "red" : "grey";
-
     // removeLike needs to accept the like id
     const clickHandler =
         likeIndex > -1
             ? () => removeLike(post.likes[likeIndex]._id)
             : () => addLike(post._id);
 
-    // const deleteHandler = () => removePost(post._id)
-
     function deleteHandler() {
         console.log("deleteHandler", post._id)
         removePost(post._id)
-
     }
 
     return (

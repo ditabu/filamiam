@@ -23,7 +23,6 @@ async function deletePost(req, res) {
 
 function create(req, res) {
     console.log(req.body, "<------- req.body", req.file, "<+++++ req.file", req.user, " <======req.user");
-  
     //Upload the file to AWS
     const filePath = `${uuidv4()}/${req.file.originalname}`;
     const params = { Bucket: BUCKET_NAME, Key: filePath, Body: req.file.buffer };

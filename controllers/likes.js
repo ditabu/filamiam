@@ -3,7 +3,7 @@ const Post = require('../models/post');
 module.exports = {
     create,
     deleteLike
-}
+};
 
 async function create(req, res){
  
@@ -12,16 +12,14 @@ async function create(req, res){
         post.likes.push({username: req.user.username, userId: req.user._id}); //mutating a document
         await post.save()// save it
         res.status(201).json({data: 'like added'})
-    } catch(err){
-       
+    } catch(err){      
         res.status(400).json({err})
     }
     
 }
 
 async function deleteLike(req, res){
-    try {
-        
+    try {      
         const post = await Post.findOne({'likes._id': req.params.id, 'likes.username': req.user.username});
         post.likes.remove(req.params.id) // mutating a document
         // req.params.id is the like id 

@@ -28,7 +28,7 @@ export default function ProfileBio({ user }) {
                             bordered
                                 
                         />
-                        <Segment centered>
+                        <Segment>
                             <h3>{user.username}</h3>
                         </Segment>
                         <Segment>

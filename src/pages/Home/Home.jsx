@@ -20,7 +20,6 @@ export default function CreatButton() {
                                 fontWeight: 'bold',
                                 marginBottom: '1em',
                                 marginTop: '2em',
-
                             }}
                         />
                         <h2>a small business owner</h2>
@@ -56,7 +55,7 @@ export default function CreatButton() {
                 </Grid.Row>
             </Grid>
         </Container>
-    )
+    );
 }
 
 

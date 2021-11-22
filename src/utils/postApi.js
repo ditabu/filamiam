@@ -12,7 +12,7 @@ export function create(post) {
     }).then(res => {
         if (res.ok) return res.json();
         throw new Error('Bad Credentials');
-  })
+  });
 }
 
 export function getAll() {
@@ -26,7 +26,7 @@ export function getAll() {
 		// Valid login if we have a status of 2xx (res.ok)
 		if (res.ok) return res.json();
 		throw new Error('bad Credentials');
-	})
+	});
   }
 
   export function removePost(id) {

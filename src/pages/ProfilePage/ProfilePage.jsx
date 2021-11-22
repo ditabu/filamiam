@@ -57,6 +57,7 @@ export default function ProfilePage(props) {
         }
     }
 
+
     async function removePost(postId) {
         try {
             const data = await postApi.removePost(postId);
@@ -88,7 +89,7 @@ export default function ProfilePage(props) {
                     </Grid.Column>
                     <Grid.Column width={12}>
                         <PostsFeed
-                            isProfile={true}
+                            isProfile={false}
                             posts={posts}
                             numPhotosCol={2}
                             user={props.user}

@@ -22,7 +22,6 @@ async function profile(req, res){
     const user = await User.findOne({username: req.params.username})
     // Then find all the posts that belong to that user
     if(!user) return res.status(404).json({err: 'User not found'})
-
     const posts = await Post.find({user: user._id}).populate("user").exec();
     console.log(posts, '<============ this posts')
     res.status(200).json({posts: posts, user: user})
@@ -35,7 +34,6 @@ async function profile(req, res){
 async function signup(req, res) {
   console.log('hitting signup router')
   console.log(req.body, req.file, " <req.body, req.file in our signup, because we have multer");
-
   // generate a unique fileName
   const filePath = `${uuidv4()}/${req.file.originalname}`;
   // generate our options object for aws
@@ -45,10 +43,8 @@ async function signup(req, res) {
     Body: req.file.buffer,
   };
   console.log(params, "is this working")
-  
   s3.upload(params, async function (err, data) {
     // data -> successful response from aws, the file location will be in data.Location
-
 
     const user = new User({...req.body, photoUrl: data.Location});
     try {
@@ -63,15 +59,11 @@ async function signup(req, res) {
   });
 }
 
-
 async function login(req, res) {
- 
   try {
     const user = await User.findOne({email: req.body.email});
-   
     if (!user) return res.status(401).json({err: 'bad credentials'});
-    user.comparePassword(req.body.password, (err, isMatch) => {
-      
+    user.comparePassword(req.body.password, (err, isMatch) => { 
       if (isMatch) {
         const token = createJWT(user);
         res.json({token});

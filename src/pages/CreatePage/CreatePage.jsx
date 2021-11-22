@@ -25,6 +25,7 @@ export default function CreateForm(props) {
         }
     }
 
+
     return (
         <Container>
             <Grid centered>
@@ -38,16 +39,19 @@ export default function CreateForm(props) {
                             fontWeight: 'bold',
                             marginBottom: '1em',
                             marginTop: '0',
-
                         }}
                     />
                     <AddPostForm handleAddPostForm={handleAddPostForm} />
-                    <Link to="/feed">
-                        <Button primary size='huge'>
-                        Go to feed
-                        <Icon name='right arrow' />
-                        </Button>
-                    </Link>
+                    <Grid.Row>
+                        <Grid.Column>
+                            <Link to="/feed">
+                                <Button primary size='huge'>
+                                Go to feed
+                                <Icon name='right arrow' />
+                                </Button>
+                            </Link>
+                        </Grid.Column>
+                    </Grid.Row>
                 </Grid.Column>
             </Grid>
         </Container>

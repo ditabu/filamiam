@@ -60,10 +60,7 @@ export default function SignUpPage(props) {
   return (
     <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as="h1" color="black" textAlign="center">
-          <Image src="https://i.imgur.com/tHjLrvs.png" />
-          Fil-Am, I Am
-        </Header>
+        <Image src="https://i.imgur.com/SF5qL1x.png" size="small" centered/>
         <Message
               attached
               header='Welcome! Mabuhay!'
