@@ -6,6 +6,7 @@ import { Grid, Button, Container, Header, Icon } from "semantic-ui-react";
 import * as postApi from '../../utils/postApi';
 import { Link } from 'react-router-dom';
 
+
 export default function CreateForm(props) {
     const [posts, setPosts] = useState([])
     const [loading, setLoading] = useState(true);
