@@ -5,26 +5,26 @@ import PostsFeed from "../../components/PostsFeed/PostsFeed";
 import * as postApi from '../../utils/postApi';
 import { Grid, Container, Header } from "semantic-ui-react";
 import * as likesApi from '../../utils/likesApi';
-import AddPostForm from "../../components/AddPostForm/AddPostForm";
+// import AddPostForm from "../../components/AddPostForm/AddPostForm";
 
 export default function Feed(props) {
     const [posts, setPosts] = useState([])
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
-    async function handleAddPostForm(post) {
-        console.log(post)
-        try {
-            setLoading(true);
-            const data = await postApi.create(post);
-            console.log(data, " this is response from the server, in handleAddPost");
-            setPosts([data.post, ...posts]);
-            setLoading(false);
-        } catch (err) {
-            setError(err.message);
-            console.log(err)
-        }
-    }
+    // async function handleAddPostForm(post) {
+    //     console.log(post)
+    //     try {
+    //         setLoading(true);
+    //         const data = await postApi.create(post);
+    //         console.log(data, " this is response from the server, in handleAddPost");
+    //         setPosts([data.post, ...posts]);
+    //         setLoading(false);
+    //     } catch (err) {
+    //         setError(err.message);
+    //         console.log(err)
+    //     }
+    // }
 
     async function addLike(postId) {
         try {

@@ -27,7 +27,7 @@ export default function PostCard({ post, isProfile, user, addLike, removeLike, r
                 <Card.Content textAlign="left">
                     <Card.Header>
                         {post.user._id === user._id ?
-                            <Icon style={{ float: "right", color: "grey" }} name={"delete"} size="small" onClick={deleteHandler} />
+                            <Icon style={{ float: "right", color: "grey" }} name={"delete"} size={"small"} onClick={deleteHandler} />
                             : ""}
                         <Link to={`/${post.user.username}`}>
                             <Image

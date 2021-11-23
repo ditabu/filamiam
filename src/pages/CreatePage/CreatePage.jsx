@@ -27,9 +27,10 @@ export default function CreateForm(props) {
 
 
     return (
+        <Container>
             <Grid columns={2} centered>
                 <Grid.Row>
-                    <Grid.Column width={10}>
+                    <Grid.Column style={{maxWidth: 450}}>
                         <Header
                             as='h1'
                             content='Create a post'
@@ -41,19 +42,16 @@ export default function CreateForm(props) {
                             }}
                         />
                     </Grid.Column>
+              
                     <Grid.Column style={{background: "white", maxWidth: 450}}>
                         <AddPostForm handleAddPostForm={handleAddPostForm} />
                     </Grid.Column>
+               
+                 
+                
                 </Grid.Row>
             </Grid>
-                        // <Grid.Column>
-                        //     <Link to="/feed">
-                        //         <Button primary size='huge'>
-                        //         Go to feed
-                        //         <Icon name='right arrow' />
-                        //         </Button>
-                        //     </Link>
-                        // </Grid.Column>
+    </Container>
             
     );
 }
