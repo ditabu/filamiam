@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+console.log(process.env.DATABASE_URL)
 // mongoose.connect(
 //   "mongodb://localhost:27017/filam", // < replace with your database name!
 // )
