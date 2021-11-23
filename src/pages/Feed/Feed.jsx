@@ -52,8 +52,7 @@ export default function Feed(props) {
 
     async function getPosts(showLoading) {
         try {
-
-            showLoading ? setLoading(true) : setLoading(false)
+            showLoading ? setLoading(true) : setLoading(false);
             const data = await postApi.getAll();
             setPosts([...data.posts]);
             setLoading(false);

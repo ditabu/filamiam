@@ -24,11 +24,12 @@ export default function CreateForm(props) {
             console.log(err)
         }
     }
+    
 
 
     return (
         <Container>
-            <Grid columns={2} centered>
+            <Grid centered>
                 <Grid.Row>
                     <Grid.Column style={{maxWidth: 450}}>
                         <Header
@@ -41,17 +42,12 @@ export default function CreateForm(props) {
                                 marginTop: '0',
                             }}
                         />
-                    </Grid.Column>
-              
-                    <Grid.Column style={{background: "white", maxWidth: 450}}>
                         <AddPostForm handleAddPostForm={handleAddPostForm} />
                     </Grid.Column>
-               
-                 
-                
                 </Grid.Row>
             </Grid>
     </Container>
+    
             
     );
 }

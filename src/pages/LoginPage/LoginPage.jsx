@@ -7,7 +7,6 @@ import {
   Button,
   Form,
   Grid,
-  Header,
   Image,
   Message,
   Segment,
